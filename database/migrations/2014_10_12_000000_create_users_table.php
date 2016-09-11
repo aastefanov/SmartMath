@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
-            $table->boolean('is_admin');
+            $table->boolean('is_admin')->default(false);
         });
     }
 

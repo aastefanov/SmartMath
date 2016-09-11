@@ -11,6 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('');
+// Dashboard and auth
+Route::get('/', 'IndexController@index');
+Route::get('/dashboard', 'HomeController@dashboard');
+Auth::routes();
+
+// User
+Route::group([
+    'middleware' => 'auth'
+], function () {
+    Route::get('/profile', 'ProfileController@index');
+});
+
+// Admin panel
+Route::group([
+    'middleware' => ['auth', 'admin'],
+    'namespace' => 'Admin',
+    'prefix' => 'admin'
+],function () {
+    Route::get('/profile/{id}', 'UsersController@viewProfile');
+
+    Route::resource('/categories', 'CategoriesController');
 });

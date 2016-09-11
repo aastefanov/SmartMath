@@ -16,6 +16,7 @@ class CreateProblemsTable extends Migration
         Schema::create('problems', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->text('description');
             $table->timestamps();
             $table->softDeletes();
             $table->integer('difficulty');

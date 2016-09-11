@@ -12,7 +12,7 @@ class User extends Authenticatable
 
     protected $fillable = ['name', 'email', 'password'];
 
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password', 'remember_token', 'is_admin'];
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
@@ -23,5 +23,9 @@ class User extends Authenticatable
 
     public function categories() {
         return $this->hasMany('App\Models\Category');
+    }
+
+    public function isAdmin() {
+        return $this->is_admin;
     }
 }

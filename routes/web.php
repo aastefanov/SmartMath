@@ -29,7 +29,8 @@ Route::group([
     'namespace' => 'Admin',
     'prefix' => 'admin'
 ],function () {
-    Route::get('/profile/{id}', 'UsersController@viewProfile');
-
+    Route::get('/', 'IndexController@index');
+    Route::resource('/users', 'UsersController');
     Route::resource('/categories', 'CategoriesController');
+    Route::resource('/problems', 'UsersController');
 });

@@ -10,6 +10,8 @@ class Category extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = ['name', 'description'];
+
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     public function problems()
@@ -24,6 +26,6 @@ class Category extends Model
 
     public function getAvailableProblems() {
         $user = Auth::user();
-        return $this->problems()->whereDoesntHave($user);
+        return $this->problems()->whereDoesntHave($user)->get();
     }
 }

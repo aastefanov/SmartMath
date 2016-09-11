@@ -14,6 +14,7 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/smartmath.css" rel="stylesheet">
     <link href="/css/summernote/summernote.css" rel="stylesheet">
+    <link href="/css/glyphicons/glyphicons.min.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -61,6 +62,13 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            @if(Auth::user()->isAdmin())
+                            <li>
+                                <a href="{{ url('/admin') }}">
+                                    Administration
+                                </a>
+                            </li>
+                            @endif
                             <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();

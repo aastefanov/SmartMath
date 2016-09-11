@@ -21,13 +21,13 @@
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->problems()->get()->count() }}</td>
                                         <td><a class="btn btn-primary"
-                                               href="{{ url('/admin/categories/edit/' . $category->id ) }}">
+                                               href="{{ url('/admin/categories/' . $category->id . "/edit") }}">
                                                 <span class="glyphicon glyphicon-edit"></span>
                                             </a>
                                         </td>
                                         <td>
                                             <a class="btn btn-danger"
-                                               href="{{ url('/admin/categories/delete/' . $category->id ) }}">
+                                               onclick="checkDelete( {{ $category->id }} )">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </a>
                                         </td>
@@ -35,9 +35,30 @@
                                 @endforeach
                             </table>
                         </div>
+                        <div class="col-md-4 col-md-push-8">
+                            <a class="btn btn-block btn-success" href="{{ url('/admin/categories/create') }}">
+                                <span class="glyphicon glyphicon-plus"></span> Create new category</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('js_footer')
+    <script>
+        function checkDelete(id) {
+            if (confirm('Are you sure you want to delete the category?')) {
+                $.ajax({
+                    type: "DELETE",
+                    url: "{{ url('/admin/categories') }}" + "/" + id,
+                    data: {_token: "{{csrf_token()}}"},
+                    success: function () {
+                        window.location.reload();
+                    }
+                });
+            }
+        }
+    </script>
 @endsection

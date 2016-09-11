@@ -13,7 +13,7 @@ class StoreCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,28 @@ class StoreCategoryRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        switch ($this->method()) {
+            case 'GET':
+            case 'DELETE': {
+                return [];
+            }
+            case 'POST': {
+                return [
+                    'name' => 'required|unique:categories|min:6',
+                    'description' => 'required|min:15'
+                ];
+            }
+            case 'PUT':
+            case 'PATCH': {
+                return [
+                    'name' => 'required|min:6',
+                    'description' => 'required|min:15'
+                ];
+            }
+            default:
+                return [];
+                break;
+        }
+
     }
 }

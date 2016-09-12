@@ -21,11 +21,13 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Problem');
     }
 
-    public function categories() {
+    public function categories()
+    {
         return $this->hasMany('App\Models\Category');
     }
 
-    public function isAdmin() {
-        return $this->is_admin;
+    public function isAdmin()
+    {
+        return (bool)$this->is_admin;
     }
 }

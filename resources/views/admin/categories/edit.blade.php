@@ -58,8 +58,8 @@
                                         <tr>
                                             <th class="col-md-9">Problem</th>
                                             <th class="col-md-1">Difficulty</th>
-                                            <th class="col-md-1">Problem</th>
-                                            <th class="col-md-1">Problem</th>
+                                            <th class="col-md-1">Edit</th>
+                                            <th class="col-md-1">Delete</th>
                                         </tr>
                                         @foreach($category->problems()->get() as $problem)
                                             <tr>

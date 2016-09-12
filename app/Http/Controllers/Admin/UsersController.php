@@ -50,12 +50,13 @@ class UsersController extends Controller
         $user->update([
             'name' => $request['name'],
             'email' => $request['email'],
-            'is_admin' => $request['is_admin'] ? true : false
         ]);
 
         if (isset($request['password'])) {
             $user->update(['password' => bcrypt($request['password'])]);
         }
+
+        $user->is_admin = $request['is_admin'] ? true : false;
 
         $user->save();
         return redirect($this->baseUrl)->with(['status' => 'User successfully updated']);

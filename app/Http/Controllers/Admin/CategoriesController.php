@@ -25,8 +25,7 @@ class CategoriesController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         Category::create($request->all());
-        redirect($this->baseUrl)->with(['status' => 'Category successfully created']);
-        return "true";
+        return redirect($this->baseUrl)->with(['status' => 'Category successfully created']);
     }
 
     public function show($id)
@@ -42,8 +41,7 @@ class CategoriesController extends Controller
     public function update($id, StoreCategoryRequest $request)
     {
         Category::findOrFail($id)->update($request->all());
-        redirect($this->baseUrl)->with(['status' => 'Category successfully updated']);
-        return "true";
+        return redirect($this->baseUrl)->with(['status' => 'Category successfully updated']);
     }
 
     public function destroy($id)

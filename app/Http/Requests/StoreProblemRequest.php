@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCategoryRequest extends FormRequest
+class StoreProblemRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,15 +30,17 @@ class StoreCategoryRequest extends FormRequest
             }
             case 'POST': {
                 return [
-                    'name' => 'required|unique:categories|min:6',
-                    'description' => 'required|min:15'
+                    'description' => 'required|min:15',
+                    'difficulty' => 'integer|required|min:0|max:10',
+                    'answer' => 'required'
                 ];
             }
             case 'PUT':
             case 'PATCH': {
                 return [
-                    'name' => 'required|min:6',
-                    'description' => 'required|min:15'
+                    'description' => 'required|min:15',
+                    'difficulty' => 'integer|required|min:0|max:10',
+                    'answer' => 'required'
                 ];
             }
             default:

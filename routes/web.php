@@ -32,5 +32,9 @@ Route::group([
     Route::get('/', 'IndexController@index');
     Route::resource('/users', 'UsersController');
     Route::resource('/categories', 'CategoriesController');
-    Route::resource('/problems', 'UsersController');
+    Route::get('/problems/{id}', 'ProblemsController@edit');
+    Route::get('/problems/create/{categoryId}', 'ProblemsController@createFromCategory');
+    Route::post('/problems', 'ProblemsController@store');
+    Route::put('/problems/{id}', 'ProblemsController@update');
+    Route::delete('/problems/{id}', 'ProblemsController@delete');
 });

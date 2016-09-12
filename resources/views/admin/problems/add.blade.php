@@ -76,10 +76,8 @@
                 minHeight: 200,
                 focus: false
             });
-        });
-
-        $(document).ready(function () {
-            $('#answer').summernote({
+	    
+	    $('#answer').summernote({
                 minHeight: 100,
                 focus: false
             });

@@ -52,7 +52,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <input type="hidden" id="category_id" name="category_id" value="{{ $category->id }}">
+                            <input type="hidden" id="category_id" name="category_id" value="{{ $category->id }}" required>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">

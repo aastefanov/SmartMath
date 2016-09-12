@@ -11,8 +11,8 @@
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <tr>
-                                    <th class="col-md-8">Category</th>
-                                    <th class="col-md-2">Problems</th>
+                                    <th class="col-md-9">Category</th>
+                                    <th class="col-md-1">Problems</th>
                                     <th class="col-md-1">Edit</th>
                                     <th class="col-md-1">Delete</th>
                                 </tr>

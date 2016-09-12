@@ -10,13 +10,13 @@ class Problem extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['description', 'answer', 'difficulty'];
+    protected $fillable = ['description', 'answer', 'category_id', 'difficulty'];
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
     public function users()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\User')->withPivot('is_correct');
     }
 
     public function category()

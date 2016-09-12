@@ -13,7 +13,7 @@ class CreateUserProblemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_problems', function (Blueprint $table) {
+        Schema::create('problem_user', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
             $table->integer('problem_id')->unsigned();
             $table->boolean('is_correct');
@@ -29,6 +29,6 @@ class CreateUserProblemsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_problems');
+        Schema::drop('problem_user');
     }
 }

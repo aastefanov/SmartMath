@@ -32,7 +32,8 @@ class StoreProblemRequest extends FormRequest
                 return [
                     'description' => 'required|min:15',
                     'difficulty' => 'integer|required|min:0|max:10',
-                    'answer' => 'required'
+                    'answer' => 'required',
+                    'category_id' => 'required|integer'
                 ];
             }
             case 'PUT':
@@ -40,7 +41,8 @@ class StoreProblemRequest extends FormRequest
                 return [
                     'description' => 'required|min:15',
                     'difficulty' => 'integer|required|min:0|max:10',
-                    'answer' => 'required'
+                    'answer' => 'required',
+                    'category_id' => 'required|integer'
                 ];
             }
             default:

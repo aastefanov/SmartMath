@@ -63,7 +63,7 @@
                                         </tr>
                                         @foreach($category->problems()->get() as $problem)
                                             <tr>
-                                                <td>{{ $problem->description }}</td>
+                                                <td>{!! $problem->description !!}</td>
                                                 <td>{{ $problem->difficulty }}</td>
                                                 <td><a class="btn btn-primary"
                                                        href="{{ url('/admin/problems/' . $problem->id . "/edit") }}">

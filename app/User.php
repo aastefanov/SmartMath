@@ -18,12 +18,12 @@ class User extends Authenticatable
 
     public function problems()
     {
-        return $this->hasMany('App\Models\Problem');
+        return $this->belongsToMany('App\Models\Problem')->withPivot('is_correct');
     }
 
     public function categories()
     {
-        return $this->hasMany('App\Models\Category');
+        return $this->belongsToMany('App\Models\Category')->withPivot('difficulty');
     }
 
     public function isAdmin()

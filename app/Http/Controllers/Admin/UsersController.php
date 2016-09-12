@@ -52,7 +52,7 @@ class UsersController extends Controller
             'email' => $request['email'],
         ]);
 
-        if (isset($request['password'])) {
+        if ($request['password']) {
             $user->update(['password' => bcrypt($request['password'])]);
         }
 

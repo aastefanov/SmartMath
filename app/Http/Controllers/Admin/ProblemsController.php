@@ -15,8 +15,9 @@ class ProblemsController extends Controller
 
     public function store(StoreProblemRequest $request)
     {
-        Problem::create($request->all());
-        return "true";
+        $problem = Problem::create($request->all());
+	//return "true";
+	return redirect('admin/categories/' . $problem->category_id);
     }
 
     public function createFromCategory($categoryId)

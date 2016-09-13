@@ -22,6 +22,7 @@ Route::group([
 ], function () {
     Route::get('/profile', 'ProfileController@index');
     Route::get('/category/{categoryId}', 'CategoriesController@getProblem');
+    Route::post('/problems/solve/{problemId}', 'CategoriesController@solve');
 });
 
 // Admin panel

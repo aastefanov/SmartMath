@@ -35,8 +35,9 @@ class ProblemsController extends Controller
 
 	public function update($id, StoreProblemRequest $request)
 	{
-		Problem::findOrFail($id)->update($request->all());
-		return "true";
+		$problem = Problem::findOrFail($id)->update($request->all());
+		return redirect('admin/categories/' . $problem->id);
+		//return "true";
 	}
 
 	public function destroy($id)

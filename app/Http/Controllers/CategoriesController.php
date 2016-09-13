@@ -11,8 +11,13 @@ class CategoriesController extends Controller
     {
         $category = Category::findOrFail($categoryId);
 
-        $problem = $category->preferredProblems(Auth::user())->first();
+	$problem = $category->preferredProblems(Auth::user())->first();
 
-        dd($problem);
+	return $problem;
+    }
+
+    public function getProblem($categoryId) {
+	$problem = $this->getPreferredProblem($categoryId);
+	return view('problems.solve', ['problem' => $problem]);
     }
 }

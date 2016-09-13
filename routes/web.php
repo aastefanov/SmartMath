@@ -21,7 +21,7 @@ Route::group([
     'middleware' => 'auth'
 ], function () {
     Route::get('/profile', 'ProfileController@index');
-    Route::get('/category/{categoryId}', 'CategoriesController@getPreferredProblem');
+    Route::get('/category/{categoryId}', 'CategoriesController@getProblem');
 });
 
 // Admin panel
@@ -33,7 +33,8 @@ Route::group([
     Route::get('/', 'IndexController@index');
     Route::resource('/users', 'UsersController');
     Route::resource('/categories', 'CategoriesController');
-    Route::get('/problems/{id}', 'ProblemsController@edit');
+    Route::get('/problems/{id}', 'ProblemsController@show');
+    Route::get('/problems/{id}/edit', 'ProblemsController@edit');
     Route::get('/problems/create/{categoryId}', 'ProblemsController@createFromCategory');
     Route::post('/problems', 'ProblemsController@store');
     Route::put('/problems/{id}', 'ProblemsController@update');

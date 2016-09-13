@@ -8,50 +8,45 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
-    use SoftDeletes;
+	use SoftDeletes;
 
-    protected $fillable = ['name', 'description'];
+	protected $fillable = ['name', 'description'];
 
-    protected $dates = ['created_at', 'updated_at', 'deleted_at'];
+	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
-    public function problems()
-    {
-        return $this->hasMany('App\Models\Problem');
-    }
+	public function problems()
+	{
+		return $this->hasMany('App\Models\Problem');
+	}
 
-    public function users()
-    {
-        return $this->belongsToMany('App\User')->withPivot('difficulty');
-    }
+	public function users()
+	{
+		return $this->belongsToMany('App\User')->withPivot('difficulty');
+	}
 
-    public function preferredProblems(User $user)
-    {
-        $problems = $this->problems()->get();
-        $userProblems = $this->problems()->with('category')->where('category_id', $this->id);
+	public function preferredProblems(User $user)
+	{
 
-        if (!$this->users->contains($this)) {
-            $this->users()->attach($user, ['difficulty' => 3]);
-        }
+		if (!$this->users->contains($this)) {
+			$this->users()->attach($user, ['difficulty' => 3]);
+		}
 
-        $userCategory = $user->categories()->find($this);
+		$userCategory = $user->categories()->where('category_id', $this->id)->get()->first();
+		$userDifficulty = $userCategory->pivot->difficulty;
 
-        return $problems->sort(function ($a, $b) use ($userProblems, $userCategory) {
-            if ($a->difficulty < $userCategory->difficulty || $b->difficulty < $userCategory->difficulty) {
-                return -1;
-            }
+		$problems = $this->problems()->where('category_id', $this->id)->get()->keyBy('id');
 
-            $problemASolved = $userProblems->contains($a);
-            $problemBSolved = $userProblems->contains($b);
+		$userProblems = $user->problems()->get();
+		foreach($problems as $problem) {
+			if($problem->difficulty < $userDifficulty) {
+				$problems->forget($problem->id);
+				continue;
+			}
 
-            $problemACorrect = $problemASolved ? $userProblems->find($a)->is_correct : false;
-            $problemBCorrect = $problemBSolved ? $userProblems->find($b)->is_correct : false;
-
-            $priorityA = -12 * ($a->difficulty - $userCategory->difficulty) + 5 * $problemASolved + 3 * $problemACorrect;
-            $priorityB = -12 * ($b->difficulty - $userCategory->difficulty) + 5 * $problemBSolved + 3 * $problemBCorrect;
-
-            if ($priorityA == $priorityB) return 0;
-
-            return ($priorityA < $priorityB) ? 1 : -1;
-        });
-    }
+			if($userProblems->contains($problem)) {
+				$problems->forget($problem->id);
+			}
+		}
+		return $problems;
+	}
 }

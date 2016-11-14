@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +23,6 @@ class HomeController extends Controller
      */
     public function dashboard()
     {
-        return view('dashboard');
+        return view('dashboard', ['categories' => Category::all()]);
     }
 }

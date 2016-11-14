@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -49,6 +49,44 @@
                                 </div>
                             </div>
                         </form>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Problems</div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th class="col-md-9">Problem</th>
+                                            <th class="col-md-1">Difficulty</th>
+                                            <th class="col-md-1">Edit</th>
+                                            <th class="col-md-1">Delete</th>
+                                        </tr>
+                                        @foreach($category->problems()->get() as $problem)
+                                            <tr>
+                                                <td>{!! $problem->description !!}</td>
+                                                <td>{{ $problem->difficulty }}</td>
+                                                <td><a class="btn btn-primary"
+                                                       href="{{ url('/admin/problems/' . $problem->id . "/edit") }}">
+                                                        <span class="glyphicon glyphicon-edit"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-danger"
+                                                       onclick="checkDelete( {{ $problem->id }} )">
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                </div>
+
+                                <div class="col-md-4 col-md-push-8">
+                                    <a class="btn btn-block btn-success" href="{{ url('/admin/problems/create/' . $category->id) }}">
+                                        <span class="glyphicon glyphicon-plus"></span> Create new problem</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,5 +103,22 @@
                 focus: false
             });
         });
+    </script>
+@endsection
+
+@section('js_footer')
+    <script>
+        function checkDelete(id) {
+            if (confirm('Are you sure you want to delete the user?')) {
+                $.ajax({
+                    type: "DELETE",
+                    url: "{{ url('/admin/problems') }}" + "/" + id,
+                    data: {_token: "{{csrf_token()}}"},
+                    success: function () {
+                        window.location.reload();
+                    }
+                });
+            }
+        }
     </script>
 @endsection

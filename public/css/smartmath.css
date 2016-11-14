@@ -12,3 +12,39 @@
 .inspiring-quote {
     font-size: 200%;
 }
+
+.btn-circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border:10px solid #cfdcec;
+    overflow:hidden;
+    display: inline-block;
+    margin: 30px;
+    color: black;
+    background: #4679BD;
+
+}
+.btn-circle:hover {
+    background:#30588e;
+}
+.btn-circle a {
+    display:block;
+    float:left;
+    width:100%;
+    padding-top:50%;
+    padding-bottom:50%;
+    line-height:1em;
+    margin-top:-0.5em;
+
+    text-align:center;
+    color:#e2eaf3;
+    /*font-family:Verdana;*/
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration:none;
+}
+.btn-circle a:hover, .btn-circle a:active {
+    color:gray;
+    text-decoration: none;
+}

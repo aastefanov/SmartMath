@@ -13,10 +13,9 @@ class CreateUserCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_categories', function (Blueprint $table) {
+        Schema::create('category_user', function (Blueprint $table) {
             $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();
-            $table->integer('progress');
             $table->integer('difficulty');
             $table->timestamps();
             $table->softDeletes();
@@ -30,6 +29,6 @@ class CreateUserCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_categories');
+        Schema::drop('category_user');
     }
 }

@@ -13,8 +13,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <blockquote class="blockquote-reverse inspiring-quote">
-                    <p>Цъкате го това тука като някаква лелка от БДЖ</p>
-                    <footer>Пинки Мър Шалакотаранов, 2016</footer>
+                    <p>Който иска, той може!</p>
+                    <footer>Квинтилан</footer>
                 </blockquote>
             </div>
         </div>

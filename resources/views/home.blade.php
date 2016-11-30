@@ -13,8 +13,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <blockquote class="blockquote-reverse inspiring-quote">
-                    <p>Който иска, той може!</p>
-                    <footer>Квинтилан</footer>
+                    <h1>Който иска, той може!</h1>
+                    <footer><h2>Квинтилан</h2></footer>
                 </blockquote>
             </div>
         </div>

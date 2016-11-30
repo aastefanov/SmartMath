@@ -88,6 +88,10 @@ function solve() {
 	$('#answer-confirm').show();
 }
 
+function show_hint () {
+	
+}
+
 function skip() {
 	$('#answer-section').show();
 	$('#solve-buttons').hide();

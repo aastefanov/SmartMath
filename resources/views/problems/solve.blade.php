@@ -7,7 +7,7 @@
 			<div class="row">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Problem
+						Задача
 					</div>
 					<div class="panel-body">
 						{!! $problem->description !!}

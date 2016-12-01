@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="jumbotron">
-                    <h1>Добре дошли в SmartMath!</h1>
-                    <p>За начало, изберете категория:</p>
+                    <h1>Wellcome SmartMath!</h1>
+                    <p>To start choose a category:</p>
                 </div>
             </div>
         </div>

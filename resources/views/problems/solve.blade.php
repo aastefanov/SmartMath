@@ -14,16 +14,16 @@
 						<br/>
 	
 						<div id="solve-buttons">
-							<h3 class="text-center">Can you solve the problem?</h3>
+							<h3 class="text-center">Можете ли да решите тази задача?</h3>
 							<div class="row">
 								<div class="col-sm-6">
 									<a class="btn btn-primary btn-block" id="solve-yes" onclick="solve()">
-										Yes
+										Да
 									</a>
 								</div>
 								<div class="col-sm-6">
 									<a class="btn btn-default btn-block" id="solve-no" onclick="skip()">
-										No	
+										Не	
 									</a>
 								</div>
 							</div>
@@ -32,32 +32,32 @@
 						<div id="answer-section" style="display: none;">
 							<h2>The answer is: {!! $problem->answer !!}</h3>
 						<div id="answer-confirm" style="display: none;">
-							<h3 class="text-center">Is this your answer?</h2>
+							<h3 class="text-center">Това ли е вашият отговор?</h2>
 							<div class="row">
 								<div class="col-sm-6">
 									<a class="btn btn-primary btn-block" id="solve-correct" onclick="correct()">
-										Yes
+										Да
 									</a>
 								</div>
 								<div class="col-sm-6">
 									<a class="btn btn-default btn-block" id="solve-incorrect" onclick="incorrect()">
-										No	
+										Не	
 									</a>
 								</div>
 							</div>
 						</div>
 
 							<div id="next-step" style="display: none;">
-							<h3 class="text-center">Would you like to get another question?</h2>
+							<h3 class="text-center">Бихте ли желали още един въпрос?</h2>
 							<div class="row">
 								<div class="col-sm-6">
 									<a class="btn btn-primary btn-block" id="another-yes" onclick="nextQuestion()">
-										Yes
+										Да
 									</a>
 								</div>
 								<div class="col-sm-6">
 									<a class="btn btn-default btn-block" id="another-no" onclick="dashboard()">
-										No	
+										Не	
 									</a>
 								</div>
 							</div>

@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="jumbotron">
-                    <h1>Welcome SmartMath!</h1>
+                    <h1>Welcome to SmartMath!</h1>
                     <p>To start choose a category:</p>
                 </div>
             </div>

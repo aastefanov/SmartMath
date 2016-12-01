@@ -14,7 +14,7 @@
             <div class="col-xs-12">
                 <blockquote class="blockquote-reverse inspiring-quote">
                     <h1>Който иска, той може!</h1>
-                    <footer><h2>Квинтилан</h2></footer>
+                    <footer>Квинтилан</footer>
                 </blockquote>
             </div>
         </div>

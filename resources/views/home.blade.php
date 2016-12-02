@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <a class="btn btn-primary btn-block index-button" href="/login">
-                    <h1>START LEARNING NOW</h1>
+                    <h1>ЗАПОЧНЕТЕ СВОЕТО ОБУЧЕНИЕ СЕГА!</h1>
                 </a>
             </div>
         </div>

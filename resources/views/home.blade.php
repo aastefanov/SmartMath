@@ -13,8 +13,8 @@
         <div class="row">
             <div class="col-xs-12">
                 <blockquote class="blockquote-reverse inspiring-quote">
-                    <h1>Който иска, той може!</h1>
-                    <footer>Квинтилан</footer>
+                    <h1>Математиката е една от най-старите науки. Тя също е и една от най-дейните, понеже нейната сила е в младежкия й жар.</h1>
+                    <footer>А. Форсайт</footer>
                 </blockquote>
             </div>
         </div>

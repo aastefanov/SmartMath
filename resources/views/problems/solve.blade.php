@@ -30,7 +30,7 @@
 
 						</div>
 						<div id="answer-section" style="display: none;">
-							<h2>The answer is: {!! $problem->answer !!}</h3>
+							<h2>Отговорът е: {!! $problem->answer !!}</h3>
 						<div id="answer-confirm" style="display: none;">
 							<h3 class="text-center">Това ли е вашият отговор?</h2>
 							<div class="row">
